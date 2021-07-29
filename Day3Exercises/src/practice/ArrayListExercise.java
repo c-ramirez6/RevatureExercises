@@ -84,6 +84,7 @@ public class ArrayListExercise {
 		System.out.println(colors);
 		int start = 1;
 		int end = 3;
+		//Just use subList ya dumb
 		ArrayList<String> extractTo = new ArrayList<>();
 		for(int i = start; i <= end; i++) {
 			extractTo.add(colors.get(start));
