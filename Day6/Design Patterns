@@ -1,0 +1,46 @@
+Design Patterns
+
+Design Patterns evolved as reusable solutions to everyday coding problems
+A template for how to solve a problem that can be used in many situations
+These design patterns are developed by some industry experts
+These patterns are already tested and proven
+They are easy for unit testing
+Design patterns are also helpful for scalability and maintainability
+
+Your design pattern choice and usage should be thought about depending on the specific project
+
+There are 3 main categories
+1: Creation patterns
+2: Structural patterns
+3: Behavioral patterns
+
+*Creation Patterns
+	Deals with object creation and initilization 
+		1: Singleton
+		2: Factory
+		3: Abstract Factory
+
+*Structural Patterns
+	Focuses on structure and having loose coupling and single class responsibility
+		1: Adapter
+		2: Bridge
+		
+*Behavioral Patterns
+	Focuses on how our objects deal with the communication between the classes and the objects, and what kind of behavior 
+		1: Chain of responsibility
+		2: Interceptors 
+		3: Observer
+
+We will Learn Singleton and Factory
+
+
+Singleton:
+	Is used when only 1 instance of a class needs to be created.  And all future references to the class are for that one object
+	
+Factory
+	Mostly used to make classes that are loosely coupled
+	Take responsibility from main class and give it to the factory class to produce the object
+
+
+
+		
