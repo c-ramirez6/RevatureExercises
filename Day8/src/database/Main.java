@@ -20,9 +20,8 @@ public class Main {
 		
 		//Step 4: Execute Query
 		//Need a different statement to manipulate database
-		//statement.executeQuery("insert into employee (name, email, gender) values ('Maddie', 'maddie@gmail.com', '2')");
 		//statement.executeUpdate("insert into employee (name, email, gender) values ('Maddie', 'maddie@gmail.com', '2')");
-		ResultSet resultSet = statement.executeQuery("select * from employee;");
+		ResultSet resultSet = statement.executeQuery("select * from employee");
 		//ResultSet resultSet = statement.executeQuery("select emp_name, SUM(working_hours) from time_sheet group by emp_name;");
 //		while(resultSet.next()) {
 //			System.out.println("name=" + resultSet.getString(1) + " hours_worked=" + resultSet.getString(2));
