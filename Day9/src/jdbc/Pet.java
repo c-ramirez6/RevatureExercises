@@ -4,12 +4,12 @@ public class Pet {
 	private int id;
 	private String name;
 	private int weight;
-	
+
 	public Pet() {
-		
+
 	}
-	
-	public Pet(int id, String name, int weight)	{
+
+	public Pet(int id, String name, int weight) {
 		this.id = id;
 		this.name = name;
 		this.weight = weight;
@@ -43,6 +43,5 @@ public class Pet {
 	public String toString() {
 		return "Pet [id=" + id + ", name=" + name + ", weight=" + weight + "]";
 	}
-	
-	
+
 }

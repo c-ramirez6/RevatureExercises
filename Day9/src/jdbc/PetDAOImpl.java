@@ -8,12 +8,12 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PetDAOImpl implements PetDAO{
-	
+public class PetDAOImpl implements PetDAO {
+
 	private static Statement statement = null;
 	Connection conn = null;
-	
-	public PetDAOImpl()	{
+
+	public PetDAOImpl() {
 		try {
 			this.conn = ConnectionFactory.getConnection();
 		} catch (SQLException e) {
@@ -29,10 +29,9 @@ public class PetDAOImpl implements PetDAO{
 		pre.setString(1, pet.getName());
 		pre.setInt(2, pet.getWeight());
 		int count = pre.executeUpdate();
-		if(count > 0) {
+		if (count > 0) {
 			System.out.println("pet saved");
-		}
-		else	{
+		} else {
 			System.out.println("pet not saved error occured");
 		}
 	}
@@ -43,7 +42,7 @@ public class PetDAOImpl implements PetDAO{
 		statement = conn.createStatement();
 		ResultSet set = statement.executeQuery(sql1);
 		Pet pet1 = null;
-		while(set.next()) {
+		while (set.next()) {
 			pet1 = new Pet(set.getInt(1), set.getString(2), set.getInt(3));
 		}
 		String sql2 = "update pets set name=?, weight = ? where id = ?";
@@ -52,13 +51,12 @@ public class PetDAOImpl implements PetDAO{
 		pre.setInt(2, weight);
 		pre.setInt(3, id);
 		int count = pre.executeUpdate();
-		if(count > 0)	{
+		if (count > 0) {
 			System.out.println("Updated record");
-		}
-		else	{
+		} else {
 			System.out.println("Error when updating record");
 		}
-		
+
 	}
 
 	@Override
@@ -67,13 +65,12 @@ public class PetDAOImpl implements PetDAO{
 		PreparedStatement pre = conn.prepareStatement(sql);
 		pre.setInt(1, id);
 		int count = pre.executeUpdate();
-		if(count > 0)	{
+		if (count > 0) {
 			System.out.println("Deleted record");
-		}
-		else	{
+		} else {
 			System.out.println("Error when deleting record");
 		}
-		
+
 	}
 
 	@Override
@@ -82,7 +79,7 @@ public class PetDAOImpl implements PetDAO{
 		statement = conn.createStatement();
 		ResultSet set = statement.executeQuery(sql);
 		List<Pet> pets = new ArrayList<>();
-		while(set.next()) {
+		while (set.next()) {
 			Pet pet = new Pet(set.getInt(1), set.getString(2), set.getInt(3));
 			pets.add(pet);
 		}
@@ -95,10 +92,10 @@ public class PetDAOImpl implements PetDAO{
 		statement = conn.createStatement();
 		ResultSet set = statement.executeQuery(sql);
 		Pet pet = null;
-		while(set.next()) {
+		while (set.next()) {
 			pet = new Pet(set.getInt(1), set.getString(2), set.getInt(3));
 		}
-		
+
 		return pet;
 	}
 
