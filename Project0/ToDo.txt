@@ -1,0 +1,6 @@
+ToDo:
+Add table to hold accounts before they get approved
+Apply for account(add to temp table then employee adds to permenent upon approval)
+view balance
+move money in/out and to/from accounts
+log of transactions
