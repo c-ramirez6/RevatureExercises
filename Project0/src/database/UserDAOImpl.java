@@ -47,7 +47,7 @@ public class UserDAOImpl implements UserDAO{
 	}
 
 	@Override
-	public User getUser(User user) throws SQLException {
+	public int getUser(User user) throws SQLException {
 		String sql = "select * from users where users_username = ? AND users_password= ?";
 		PreparedStatement pre = conn.prepareStatement(sql);
 		pre.setString(1, user.getUsername());
@@ -59,10 +59,13 @@ public class UserDAOImpl implements UserDAO{
 			user.setUsername(set.getString(3));
 			user.setPassword(set.getString(4));
 			if(set.getString(5).equals("true"))	{
-				return new Admin(set.getInt(1), set.getString(2), set.getString(3), set.getString(4));
+				return 1;
+			}
+			else if(set.getString(5).equals("false"))	{
+				return 2;
 			}
 		}
-		return user;
+		return 0;
 	}
 
 }
