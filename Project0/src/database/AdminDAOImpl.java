@@ -8,6 +8,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import accounts.Account;
+import factories.ConnectionFactory;
+import interfaces.AdminDAO;
+
 public class AdminDAOImpl implements AdminDAO{
 	
 	private Statement statement = null;
@@ -62,8 +66,26 @@ public class AdminDAOImpl implements AdminDAO{
 			System.out.println((count+1) + " - temp account id: " + set.getInt(1) + " user id: " + set.getInt(2) + " account name: " + set.getString(3) + " account balance: " + set.getInt(4));
 			Account account = new Account(set.getInt(4), set.getString(3), set.getInt(2));
 			accounts.add(account);
+			count++;
 		}
 		return accounts;
+	}
+
+	@Override
+	public void declineAccounts(Account account) throws SQLException {
+		String sql = "delete from temp_accounts where users_id= ? AND temp_accounts_name= ? AND temp_accounts_balance= ?";
+		PreparedStatement pre = conn.prepareStatement(sql);
+		pre.setInt(1, account.getId());
+		pre.setString(2, account.getName());
+		pre.setInt(3, account.getAmount());
+		pre.executeUpdate();
+	}
+
+	@Override
+	public void closeConnection() throws SQLException {
+		conn.close();
+		System.out.println("Connection closed");
+		
 	}
 
 }

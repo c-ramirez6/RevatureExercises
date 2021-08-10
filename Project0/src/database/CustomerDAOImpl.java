@@ -8,6 +8,11 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import accounts.Account;
+import factories.ConnectionFactory;
+import interfaces.CustomerDAO;
+import users.Customer;
+
 
 public class CustomerDAOImpl implements CustomerDAO {
 	
@@ -85,6 +90,13 @@ public class CustomerDAOImpl implements CustomerDAO {
 		pre.setString(6, toAccount.getName());
 		pre.executeUpdate();
 
+	}
+
+	@Override
+	public void closeConnection() throws SQLException {
+		conn.close();
+		System.out.println("Connection closed");
+		
 	}
 
 }

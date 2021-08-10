@@ -6,6 +6,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import factories.ConnectionFactory;
+import interfaces.UserDAO;
+import users.User;
+
 public class UserDAOImpl implements UserDAO{
 	
 	private static Statement statement = null;
@@ -66,6 +70,13 @@ public class UserDAOImpl implements UserDAO{
 			}
 		}
 		return 0;
+	}
+
+	@Override
+	public void closeConnection() throws SQLException {
+		conn.close();
+		System.out.println("Connection closed");
+		
 	}
 
 }
