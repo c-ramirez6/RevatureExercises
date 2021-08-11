@@ -80,6 +80,10 @@ public class CustomerDAOImpl implements CustomerDAO {
 
 	@Override
 	public void transferMoney(Customer customer, Account toAccount, Account fromAccount, int amount) throws SQLException {
+		if(amount < 0 || amount > fromAccount.getAmount()) {
+			System.out.println("Invalid amount to withdraw");
+			return;
+		}
 		String sql = "CALL transfer(?, ?, ?, ?, ?, ?)";
 		PreparedStatement pre = conn.prepareStatement(sql);
 		pre.setInt(1, toAccount.getId());
