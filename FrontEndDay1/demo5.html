@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--Geolocation
+    1: Check if browser supports api
+    2: If supported use getCurrentPosition()
+    3: This will return coordinates
+    4: display or use them to find exact location-->
+
+    <button onclick="getLocation()">Get Location</button>
+
+    <script>
+        function getLocation() {
+            if (navigator.geolocation) {
+               navigator.geolocation.getCurrentPosition(successCallback, errorCallback)
+            }
+        }
+
+        function successCallback(position)  {
+            var lat = position.coords.latitude;
+            var long = position.coords.longitude;
+            alert("Latitude: " + lat + " longitude: " + long);
+        }
+
+        function errorCallback(error)    {
+            if(error.code == 1) {
+                alert("Access denyed");
+            }else{
+                alert("position is unavailible");
+            }
+        }
+    </script>
+</body>
+
+</html>
