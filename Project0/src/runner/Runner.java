@@ -23,7 +23,7 @@ public class Runner {
 	Scanner in = new Scanner(System.in);
 	String command = "";
 	UserDAO userdao = UserDAOFactory.getUserDao();
-	  static Logger log = Logger.getLogger(Runner.class.getName());  
+	static Logger log = Logger.getLogger(Runner.class.getName());
 
 	public Runner() {
 
@@ -47,6 +47,12 @@ public class Runner {
 				userLoop();
 			}
 		} while (!command.equals("3"));
+		try {
+			userdao.closeConnection();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void userLoop() {
@@ -72,7 +78,7 @@ public class Runner {
 						int amount = Integer.parseInt(in.nextLine());
 						Account newAccount = new Account(amount, name);
 						custdao.addAccount(newAccount, cust);
-						log.info("Account creation called");  
+						log.info("Account creation called");
 						break;
 					}
 					case "2": {
@@ -101,7 +107,7 @@ public class Runner {
 						} catch (IndexOutOfBoundsException e) {
 							System.out.println("No account found by that number");
 						}
-						log.info("Deposit called");  
+						log.info("Deposit called");
 						break;
 					}
 					case "4": {
@@ -122,7 +128,7 @@ public class Runner {
 						} catch (IndexOutOfBoundsException e) {
 							System.out.println("No account found by that number");
 						}
-						log.info("Withdraw called");  
+						log.info("Withdraw called");
 						break;
 					}
 					case "5": {
@@ -146,7 +152,7 @@ public class Runner {
 						} catch (IndexOutOfBoundsException e) {
 							System.out.println("No account found by that number");
 						}
-						log.info("Transfer called");  
+						log.info("Transfer called");
 						break;
 					}
 					}
@@ -176,7 +182,7 @@ public class Runner {
 						} catch (IndexOutOfBoundsException e) {
 							System.out.println("No account found by that number");
 						}
-						log.info("Account approval called");  
+						log.info("Account approval called");
 						break;
 					}
 					case "2": {
@@ -197,7 +203,7 @@ public class Runner {
 						} catch (IndexOutOfBoundsException e) {
 							System.out.println("No account found by that number");
 						}
-						log.info("Account denyed called");  
+						log.info("Account denyed called");
 						break;
 					}
 					case "3": {
@@ -230,7 +236,7 @@ public class Runner {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		log.info("User registration called");  
+		log.info("User registration called");
 
 	}
 }
