@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #ccc;
+            margin: 0px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .wrapper {
+            margin: 0 auto;
+            width: 1000px;
+            background-color: #fff;
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        tr {
+            border: 0px solid green;
+            transition: 0.4s;
+        }
+
+        td,
+        th {
+            color: green;
+            font-size: 28;
+            padding: 10px;
+        }
+
+        th {
+            color: #fff;
+            background-color: green;
+        }
+
+
+
+        tr:nth-child(even) {
+            background-color: #ccc;
+        }
+
+        tr:hover {
+            background-color: lightgreen;
+            transition: 0.4s;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tr>
+                <td>Chris</td>
+                <td>22</td>
+                <td>chris@gmail.com</td>
+            </tr>
+            <tr>
+                <td>Paul</td>
+                <td>26</td>
+                <td>paul@gmail.com</td>
+            </tr>
+            <tr>
+                <td>Mark</td>
+                <td>34</td>
+                <td>mark@gmail.com</td>
+            </tr>
+            <tr>
+                <td>Stacy</td>
+                <td>30</td>
+                <td>stacy@gmail.com</td>
+            </tr>
+
+        </table>
+    </div>
+</body>
+
+</html>

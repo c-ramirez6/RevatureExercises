@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            width: 15%;
+            margin-left: auto;
+           margin-right: auto;
+        }
+        body    {
+            background-color: blanchedalmond;
+        }
+        .wrapper{  
+           background-color: #ccc;
+           border-radius: 6px;
+           box-shadow: 2px 2px black;
+           width: 20%;
+           margin-left: auto;
+           margin-right: auto;
+           padding: 5px;
+        }
+
+        label, input    {
+            padding: 5px;
+        }
+
+        input   {
+            padding: 5px;
+           margin: 5px;
+        }
+
+        input[type="submit"]:hover    {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Registration Form</h1>
+
+    <form name="userForm" method="post" onsubmit="onSubmit(event)">
+        <div class="wrapper">
+
+        <div>
+            <label for="">Username</label>
+            <input type="text" name="username" id="name">
+        </div>
+
+        <div>
+            <label for="">Email address</label>
+            <input type="text" name="email" id="email">
+        </div>
+
+        <div>
+            <label for="">Password</label>
+            <input type="password" name="password" id="password">
+        </div>
+
+        <div>
+            <label for="">Confirm Password</label>
+            <input type="password" name="cpassword" id="cpassword">
+        </div>
+
+        <div>
+            <input type="submit" value="Register">
+        </div>
+    </div>
+    </form>
+
+
+    <script>
+
+        function onSubmit(event) {
+            event.preventDefault();
+
+            var name = document.userForm.username.value;
+            var email = document.userForm.email.value;
+            var password = document.userForm.password.value;
+            var cpassword = document.userForm.cpassword.value;
+
+            if(name==null || name=="")   {
+                alert('Username is required');
+            }
+            else if(email==null || email=="")   {
+                alert('Email is required');
+            }
+            else if(password==null || password=="")   {
+                alert('Password is required');
+            }
+            else if(cpassword==null || cpassword=="")   {
+                alert('Please confirm password');
+            }
+            else if(password != cpassword)   {
+                alert('Passwords do not match')
+            }
+            else{
+                
+            }
+
+            
+        }
+
+    </script>
+</body>
+</html>
