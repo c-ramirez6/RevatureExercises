@@ -135,7 +135,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="revature-servlet" path="/revature-servlet" reloadable="true" source="org.eclipse.jst.jee.server:revature-servlet"/><Context docBase="servlet-day-2" path="/servlet-day-2" reloadable="true" source="org.eclipse.jst.jee.server:servlet-day-2"/><Context docBase="Calculator" path="/Calculator" reloadable="true" source="org.eclipse.jst.jee.server:Calculator"/><Context docBase="Session-demo" path="/Session-demo" reloadable="true" source="org.eclipse.jst.jee.server:Session-demo"/></Host>
+      <Context docBase="revature-servlet" path="/revature-servlet" reloadable="true" source="org.eclipse.jst.jee.server:revature-servlet"/><Context docBase="servlet-day-2" path="/servlet-day-2" reloadable="true" source="org.eclipse.jst.jee.server:servlet-day-2"/><Context docBase="Calculator" path="/Calculator" reloadable="true" source="org.eclipse.jst.jee.server:Calculator"/><Context docBase="Session-demo" path="/Session-demo" reloadable="true" source="org.eclipse.jst.jee.server:Session-demo"/><Context docBase="Login" path="/Login" reloadable="true" source="org.eclipse.jst.jee.server:Login"/><Context docBase="RequestDispatcherDemo" path="/RequestDispatcherDemo" reloadable="true" source="org.eclipse.jst.jee.server:RequestDispatcherDemo"/><Context docBase="SessionStorage" path="/SessionStorage" reloadable="true" source="org.eclipse.jst.jee.server:SessionStorage"/></Host>
     </Engine>
   </Service>
 </Server>

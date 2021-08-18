@@ -3,13 +3,15 @@ package calc;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 public class CalculatorServlet extends HttpServlet{
 
-	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		out.println("Welcome to Calculator Servlet");
@@ -21,22 +23,32 @@ public class CalculatorServlet extends HttpServlet{
 		switch(operation)	{
 		case "add":	{
 			out.println("<h1>Result: "+ (number1 + number2) +"</h1>");
+			RequestDispatcher rd = request.getRequestDispatcher("/index.html");
+			rd.include(request, response);
 			break;
 		}
 		case "subtract":	{
 			out.println("<h1>Result: "+ (number1 - number2) +"</h1>");
+			RequestDispatcher rd = request.getRequestDispatcher("/index.html");
+			rd.include(request, response);
 			break;
 		}
 		case "multiply":	{
 			out.println("<h1>Result: "+ (number1 * number2) +"</h1>");
+			RequestDispatcher rd = request.getRequestDispatcher("/index.html");
+			rd.include(request, response);
 			break;
 		}
 		case "divide":	{
 			if(number2 != 0) {
 				out.println("<h1>Result: "+ (number1 / number2) +"</h1>");
+				RequestDispatcher rd = request.getRequestDispatcher("/index.html");
+				rd.include(request, response);
 			}
 			else	{
 				out.println("<h1>Can not divide by 0</h1>");
+				RequestDispatcher rd = request.getRequestDispatcher("/index.html");
+				rd.include(request, response);
 			}
 			break;
 		}
