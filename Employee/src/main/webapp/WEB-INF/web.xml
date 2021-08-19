@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+	id="WebApp_ID" version="4.0">
+	<servlet>
+		<servlet-name>employeeservlet</servlet-name>
+		<servlet-class>com.employee.EmployeeServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>employeeservlet</servlet-name>
+		<url-pattern>/employeeservlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>listservlet</servlet-name>
+		<servlet-class>com.employee.ListServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>listservlet</servlet-name>
+		<url-pattern>/listservlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>updateservlet</servlet-name>
+		<servlet-class>com.employee.UpdateServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>updateservlet</servlet-name>
+		<url-pattern>/updateservlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>updateservlet2</servlet-name>
+		<servlet-class>com.employee.UpdateServlet2</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>updateservlet2</servlet-name>
+		<url-pattern>/updateservlet2</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>deleteservlet</servlet-name>
+		<servlet-class>com.employee.DeleteServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>deleteservlet</servlet-name>
+		<url-pattern>/deleteservlet</url-pattern>
+	</servlet-mapping>
+</web-app>

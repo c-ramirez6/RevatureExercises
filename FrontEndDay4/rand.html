@@ -2,54 +2,61 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        body{
-            padding: 10px;
-        }
-        .wrapper {
-            width: 50%;
-            margin: 0 auto;
-            padding: 20px;
-            border: 10px solid grey;
-            border-radius: 20px;
-        }
-    </style>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
 
 <body>
+  <h1>Registration Form</h1>
+  <form action="servlet1" method="post">
+    <table>
+      <tr>
+        <td>Enter name</td>
+        <td><input type="text" name="user_name" placeholder="Name" />
+        </td>
+      </tr>
 
-    <div class="wrapper">
-        <form action="servlet1" method="POST">
-            <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Username</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="username">
-            </div>
-            
-            <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Password</label>
-              <input type="password" class="form-control" id="exampleInputPassword1" name="password">
-            </div>
+      <tr>
+        <td>Enter Email</td>
+        <td><input type="text" name="user_email" placeholder="Email" />
+        </td>
+      </tr>
 
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Enter your full name</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="name">
-              </div>
-            
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
+      <tr>
+        <td>Select Gender</td>
+        <td><input type="radio" name="user_gender" value="male" />Male
+        </td>
+        <td><input type="radio" name="user_gender" value="female" />Female
+        </td>
+      </tr>
 
-          <form action="index.html" style="margin-top: 10px;">
-            <button type="submit" class="btn btn-primary">Go Back</button>
-          </form>
-    </div>
+      <tr>
+        <td>City</td>
+        <td><select name="user_city">
+            <option value="USA">USA</option>
+            <option value="UK">UK</option>
+            <option value="JPN">JPN</option>
+          </select></td>
+      </tr>
+
+      <tr>
+        <td colspan="2"><input type="submit" value="save"></input></td>
+
+      </tr>
 
 
+    </table>
+
+    
+  </form>
+
+  <form action="listservlet" method="GET">
+    <input type="submit" value="List Employees">
+  </form>
+
+  <p>Blah blah blah <a href="update">update</a> <a href="delete">delete</a></p>
 </body>
 
 </html>

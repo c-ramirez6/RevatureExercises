@@ -30,6 +30,9 @@ public class Servlet3 extends HttpServlet {
 				out.println("You have not logged in.");
 				RequestDispatcher rd = request.getRequestDispatcher("/index.html");
 				rd.include(request, response);
+			} catch (Exception e) {
+				System.out.println("An error occured");
+				e.printStackTrace();
 			}
 
 			out.println("</body>");
