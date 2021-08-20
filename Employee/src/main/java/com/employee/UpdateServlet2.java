@@ -27,13 +27,8 @@ public class UpdateServlet2 extends HttpServlet{
 			out.println("<body>");
 			
 			String tid = request.getParameter("id");
-			System.out.println(tid);
 			int id = Integer.parseInt(tid);
 			Employee emp = dao.getEmployee(id);
-//			System.out.println(request.getParameter("name"));
-//			System.out.println(request.getParameter("email"));
-//			System.out.println(request.getParameter("gender"));
-//			System.out.println(request.getParameter("country"));
 			emp = new Employee(id, request.getParameter("user_name"), request.getParameter("user_email"), request.getParameter("user_gender"), request.getParameter("user_country"));
 			dao.updateEmployee(emp);
 			out.println("employee has been updated");
@@ -43,7 +38,6 @@ public class UpdateServlet2 extends HttpServlet{
 			out.println("</HTML>");
 			out.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

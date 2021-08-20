@@ -66,22 +66,6 @@ public class UpdateServlet extends HttpServlet {
 					+ "    <input type=\"hidden\" name=\"id\" value='"+id+"'>\r\n"
 					+ "    \r\n"
 					+ "  </form>");
-//			System.out.println("<form action='index.html'>");
-//			System.out.println(" <table>");
-//			System.out.println(" <tr>");
-//			System.out.println(" <td>Enter name</td>");
-//			System.out.println(" <td><input type='text' name='user_name' placeholder='Name' />");
-//			System.out.println("");
-//			System.out.println("");
-//			System.out.println("");
-//			System.out.println("");
-//			System.out.println("");
-//			System.out.println("");
-//			System.out.println("");
-//			System.out.println("");
-//			System.out.println("");
-//			String id = request.getParameter("id");
-//			out.println(id);
 			out.println("</body>");
 			out.println("</HTML>");
 			out.close();
