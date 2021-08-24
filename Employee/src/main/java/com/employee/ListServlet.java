@@ -32,13 +32,52 @@ public class ListServlet extends HttpServlet{
 			out.println("<HTML>");
 			out.println("<Head>");
 			out.println("<Title>Login</Title>");
+			out.println("  <style>\r\n"
+					+ "    table{\r\n"
+					+ "      padding: 20px;\r\n"
+					+ "      width: 50%;\r\n"
+					+ "      margin: 0 auto;\r\n"
+					+ "      border: 3px solid grey;\r\n"
+					+ "      border-collapse: collapse;\r\n"
+					+ "    }\r\n"
+					+ "    td{\r\n"
+					+ "      padding: 8px;\r\n"
+					+ "    }\r\n"
+					+ "  </style>");
 			out.println("</Head>");
 			out.println("<body>");
+			
+			out.println("<table border='1'>\r\n"
+					+ "\r\n"
+					+ "  <thead>\r\n"
+					+ "    <td>Employee id</td>\r\n"
+					+ "    <td>Employee name</td>\r\n"
+					+ "    <td>Employee email</td>\r\n"
+					+ "    <td>Employee gender</td>\r\n"
+					+ "    <td>Employee country</td>\r\n"
+					+ "    <td colspan=\"2\">Options</td>\r\n"
+					+ "  </thead>");
 
 			for(Employee e : employees) {
 				int id = e.getId();
-				out.println("<p>" + e.toString() + "<a href='updateservlet?id="+ id +"'>update</a> <a href='deleteservlet?id="+ id+ "'>delete</a></p>");
+				String name = e.getName();
+				String email = e.getEmail();
+				String gender = e.getGender();
+				String country = e.getCountry();
+				
+				out.println(" <tr>\r\n"
+						+ "    <td>"+id+"</td>\r\n"
+						+ "    <td>"+name+"</td>\r\n"
+						+ "    <td>"+email+"</td>\r\n"
+						+ "    <td>"+gender+"</td>\r\n"
+						+ "    <td>"+country+"</td>\r\n"
+						+ "    <td><a href='updateservlet?id="+ id +"&name=" +name+"&email="+email+"&gender="+gender+"&country="+country+"'>update</a></td>\r\n"
+						+ "    <td><a href='deleteservlet?id="+ id+"'>delete</a></td>\r\n"
+						+ "  </tr>");
+				
+				//out.println("<p>" + e.toString() + "<a href='updateservlet?id="+ id +"&name=" +name+"&email="+email+"&gender="+gender+"&country="+country+"'>update</a> <a href='deleteservlet?id="+ id+ "'>delete</a></p>");
 			}
+			out.println("</table");
 			out.println("<h1><a href='index.html'>Go back</a></h1>");
 			employees.clear();
 			out.println("</body>");

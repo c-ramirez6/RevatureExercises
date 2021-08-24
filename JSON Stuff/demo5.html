@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+        <style>
+            table{
+                width: 50%;
+                margin: 0 auto;
+            }
+        </style>
+</head>
+
+<body>
+    <div class="container">
+        <button onclick="getData()" class="btn btn-primary">Get data</button>
+
+        <div id="result">
+
+        </div>
+    </div>
+
+    <script>
+        function getData() {
+            var request = new XMLHttpRequest();
+            request.open('GET', 'https://jsonplaceholder.typicode.com/photos', true)
+            request.onreadystatechange = function () {
+                if (this.readyState = 4 && this.status == 200) {
+                    var response = this.response
+                    var data = JSON.parse(response)
+                    var text = ""
+                        text += '<div class="container">'
+                    for (var i = 0; i < data.length; i++) {
+                        text += '<div class= "row" style="margin-top: 10px">'
+                            text+= '<div class= "col-sm-3"><img src=' + data[i].thumbnailUrl + '>'
+                            text += '</div>'
+                            i++
+                            text+= '<div class= "col-sm-3"><img src=' + data[i].thumbnailUrl + '>'
+                            text += '</div>'
+                            i++
+                            text+= '<div class= "col-sm-3"><img src=' + data[i].thumbnailUrl + '>'
+                            text += '</div>'
+                            i++
+                            text+= '<div class= "col-sm-3"><img src=' + data[i].thumbnailUrl + '>'
+                            text += '</div>'
+                            i++
+                            text+= '</div>'
+                            
+                    }
+                    text += '</div>'
+                    document.getElementById('result').innerHTML = text
+
+                } else {
+                    console.error('Error occured')
+                }
+            }
+            request.send()
+        }
+
+    </script>
+</body>
+
+</html>

@@ -6,82 +6,60 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-
-    <style>
-      .wrapper{
-        width: 50%;
-        margin: 0 auto;
-        margin-top: 10px;
-        border: 10px solid grey;
-        border-radius: 10px;
-        padding: 25px;
-      }
-
-      h1{
-        width: 50%;
-        margin:0 auto;
-        padding-bottom: 20px;
-      }
-
-      .wide{
-        min-width: 100%;
-      }
-    </style>
+  <style>
+    table{
+      padding: 20px;
+      width: 50%;
+      margin: 0 auto;
+      border: 3px solid grey;
+      border-collapse: collapse;
+    }
+    td{
+      padding: 8px;
+    }
+  </style>
 </head>
 
 <body>
+<table border="1">
 
-  <div class="wrapper">
-  <h1>Registration Form</h1>
-  <form action="employeeservlet" method="post">
-    <table class="table table-striped">
-      <tr>
-        <td>Enter name</td>
-        <td colspan="2"><input type="text" name="user_name" placeholder="Name" style="min-width: 100%"/>
-        </td>
-      </tr>
+  <thead>
+    <td>Employee id</td>
+    <td>Employee name</td>
+    <td>Employee email</td>
+    <td>Employee gender</td>
+    <td>Employee country</td>
+    <td colspan="2">Options</td>
+  </thead>
+  <tr>
+    <td>+id+</td>
+    <td>+name+</td>
+    <td>+email+</td>
+    <td>+gender+</td>
+    <td>+country+</td>
+    <td><a href='updateservlet?id="+ id +"&name=" +name+"&email="+email+"&gender="+gender+"&country="+country+"'>update</a></td>
+    <td><a href='deleteservlet?id="+ id+ "'>delete</a></td>
+  </tr>
+  <tr>
+    <td>+id+</td>
+    <td>+name+</td>
+    <td>+email+</td>
+    <td>+gender+</td>
+    <td>+country+</td>
+    <td><a href='updateservlet?id="+ id +"&name=" +name+"&email="+email+"&gender="+gender+"&country="+country+"'>update</a></td>
+    <td><a href='deleteservlet?id="+ id+ "'>delete</a></td>
+  </tr>
+  <tr>
+    <td>+id+</td>
+    <td>+name+</td>
+    <td>+email+</td>
+    <td>+gender+</td>
+    <td>+country+</td>
+    <td><a href='updateservlet?id="+ id +"&name=" +name+"&email="+email+"&gender="+gender+"&country="+country+"'>update</a></td>
+    <td><a href='deleteservlet?id="+ id+ "'>delete</a></td>
+  </tr>
 
-      <tr>
-        <td>Enter Email</td>
-        <td colspan="2"><input type="text" class="wide" name="user_email" placeholder="Email" />
-        </td>
-      </tr>
-
-      <tr>
-        <td>Select Gender</td>
-        <td><input type="radio" name="user_gender" value="male" />Male
-        </td>
-        <td><input type="radio" name="user_gender" value="female" />Female
-        </td>
-      </tr>
-
-      <tr>
-        <td>City</td>
-        <td colspan="2"><select name="user_country" class="wide">
-            <option value="USA">USA</option>
-            <option value="UK">UK</option>
-            <option value="JPN">JPN</option>
-          </select></td>
-      </tr>
-
-      <tr>
-        <td colspan="3"><input class="btn btn-secondary" type="submit" value="Save"></td>
-
-      </tr>
-
-
-    </table>
-
-
-  </form>
-
-  <form action="listservlet" method="GET">
-    <input class="btn btn-secondary" type="submit" value="List Employees">
-  </form>
-
-</div>
+</table>
 </body>
 
 </html>
