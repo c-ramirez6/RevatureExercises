@@ -1,0 +1,27 @@
+<h1>Test Component</h1>
+<h1>{{name}}</h1>
+<h1>{{name | uppercase}}</h1>
+<h1>{{name | lowercase}}</h1>
+<h1>{{name | titlecase}}</h1>
+
+<h1>{{ message | slice: 3 : 5}}</h1>
+
+<h1>{{ person | json }}</h1>
+
+<h1>{{1.234 | number : "1.2-3" }}</h1>
+
+<h1>{{1.234 | number : "3.4-5" }}</h1>
+
+<h1>{{1.234 | number : "3.1-2" }}</h1>
+
+<h1>{{  0.50 | percent }}</h1>
+
+<h1>{{ 2000 | currency }}</h1>
+<h1>{{ 2000 | currency : 'GBP'}}</h1>
+<h1>{{ 2000 | currency : 'JPY'}}</h1>
+
+<h1>{{ currentDate }}</h1>
+<h1>{{ currentDate | date : 'short'}}</h1>
+<h1>{{ currentDate | date : 'shortDate'}}</h1>
+<h1>{{ currentDate | date : 'shortTime'}}</h1>
+

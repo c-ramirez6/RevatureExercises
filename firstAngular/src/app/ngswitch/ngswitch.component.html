@@ -1,0 +1,9 @@
+<div [ngSwitch] = "value">
+    <h1 *ngSwitchCase="1">One</h1>
+    <h1 *ngSwitchCase="2">Two</h1>
+    <h1 *ngSwitchCase="3">Three</h1>
+    <h1 *ngSwitchCase="4">Four</h1>
+    <h1 *ngSwitchDefault>Default Case</h1>
+</div>
+<button class="btn btn-primary" (click)="increment()">Increment value</button>
+<button class="btn btn-danger" (click)="decrement()">Decrement value</button>

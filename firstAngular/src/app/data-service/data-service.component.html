@@ -1,0 +1,18 @@
+<table class="table-bordered">
+    <thead>
+        <tr>
+            <td>id</td>
+            <td>name</td>
+            <td>gender</td>
+            <td>email</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor='let employee of employees'>
+            <td>{{employee.id}}</td>
+            <td>{{employee.name}}</td>
+            <td>{{employee.gender}}</td>
+            <td>{{employee.email}}</td>
+        </tr>
+    </tbody>
+</table>

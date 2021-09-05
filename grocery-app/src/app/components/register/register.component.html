@@ -1,0 +1,54 @@
+<app-navbar></app-navbar>
+<div class="containter">
+
+    <h2>Register</h2>
+    <form #userForm="ngForm" class="mb-3" (submit)='onFormSubmit(userForm.value)'>
+        <h1>{{userForm.value | json}}</h1>
+        <hr>
+        <h1>{{userModel | json}}</h1>
+        <div class="form-group">
+            <label for="">First Name</label>
+            <input type="text" #firstName='ngModel' [class.is-invalid]="firstName.invalid && firstName.touched"
+                name="firstName" class="form-control" [(ngModel)]='userModel.firstName' required>
+            <small class="text-danger" [class.d-none]='firstName.valid || firstName.untouched'>Required field</small>
+        </div>
+        <div class="form-group">
+            <label for="">Email</label>
+            <input type="text" #email='ngModel' [class.is-invalid]='email.invalid && email.touched' name="email" id=""
+                class="form-control" [(ngModel)]='userModel.email' required>
+            <small class="text-danger" [class.d-none]='email.valid || email.untouched'>Required field</small>
+        </div>
+        <div class="form-group">
+            <label for="">Mobile</label>
+            <input type="text" class="form-control" #mobile="ngModel" [class.is-invalid]="mobile.invalid && mobile.touched"
+            name="mobile" [(ngModel)]="userModel.mobile" required pattern="^\d{10}$">
+            <div *ngIf="mobile.errors && (mobile.invalid || mobile.touched)">
+                <small class="text-danger" *ngIf="mobile.errors.required">Mobile number is required</small>
+                <small class="text-danger" *ngIf="mobile.errors.pattern">Mobile number must be 10 digit</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="">Password</label>
+            <input type="text" name="password" id="" class="form-control" [(ngModel)]='userModel.password'>
+        </div>
+        <div class="form-group">
+            <label for="">Country</label>
+            <select name="country" id="" [(ngModel)]='userModel.country'>
+                <option value="USA">USA</option>
+                <option value="UK">UK</option>
+                <option value="JPN">JPN</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="">Gender</label>
+            <input type="radio" name="gender" id="" value="male" [(ngModel)]='userModel.gender'>Male
+            <input type="radio" name="gender" id="" value="female" [(ngModel)]='userModel.gender'>Female
+        </div>
+        <div class="form-group">
+            <label for="">Subscribe</label>
+            <input type="checkbox" name="subscribe" id="" [(ngModel)]='userModel.subscribe'>
+        </div>
+            <input type="submit" [disabled]='userForm.invalid' value="Submit" class="btn btn-primary">
+    </form>
+
+</div>

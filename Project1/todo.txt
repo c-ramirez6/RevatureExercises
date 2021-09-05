@@ -1,0 +1,14 @@
+1: Since I can't update html on a servlet like in Angular I will have to make a 
+   2nd servlet for listing reimbursements and swap back and forth 
+   (maybe use some javascript here?)
+   (Could also add buttons to the user servlet and go back and forth probably easiest)
+
+2: add admin functionality
+
+3: styling
+
+4: figure out where I am using javascript and AJAX
+
+5: host on AWS?
+
+6: refactor code

@@ -1,0 +1,26 @@
+<div class="container" style="margin: 0 auto; width: 50%; margin-bottom: 20px;">
+
+<button class="btn btn-primary" (click)="showTable()">Show table</button>
+<br>
+
+<table *ngIf="table" class="table-bordered" style="margin: 0 auto; width: 50%; margin-bottom: 20px;">
+    <thead>
+        <tr>
+            <td>id</td>
+            <td>name</td>
+            <td>email</td>
+            <td>gender</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor='let employee of employees; even as e'
+            [style.background]="e ? '#FFCC00' : '#fff'">
+        <td>{{employee.id}}</td>
+        <td>{{employee.name}}</td>
+        <td>{{employee.email}}</td>
+        <td>{{employee.gender}}</td>
+        </tr>
+
+    </tbody>
+</table>
+</div>

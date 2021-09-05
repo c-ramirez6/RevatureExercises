@@ -1,0 +1,21 @@
+<table class="table-bordered" style="margin: 0 auto; width: 50%; margin-bottom: 20px;">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>email</th>
+            <th>gender</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor='let employee of employees; even as e; trackBy: trackById'
+            [style.background]="e ? '#ccc' : '#fff'">
+            <td>{{employee.id}}</td>
+            <td>{{employee.name}}</td>
+            <td>{{employee.email}}</td>
+            <td>{{employee.gender}}</td>
+        </tr>
+    </tbody>
+</table>
+<input type="text" #input value="{{text}}">
+<button class="btn btn-primary" (click)='addEmployee(input.value)'>Add employee</button>

@@ -1,0 +1,33 @@
+<br>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3">
+            <h3>{{ catName | uppercase }}</h3>
+            <ul class="list-group">
+                <li class="list-group-item">All</li>
+                <li style="cursor: pointer;" class="list-group-item" *ngFor="let sub of subCategory.data" (click)="onSubCategorySelected(sub)">{{ sub.subName }}</li>
+              </ul>
+        </div>
+
+        <div class="col-lg-9">
+            <h3 class="text-center">All Products</h3>
+            <div class="row">
+                <div class="col-sm-4" *ngFor="let product of products.data">
+                  <div class="card">
+                    <img src="{{ IMAGE_URL+ product.image }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">{{ product.productName }}</h5>
+                      <h1>{{ product.price | currency }} <span style="color: #666; font-size: 18px"><del>{{ product.mrp | currency}}</del></span></h1>
+                      <p class="card-text">{{ product.description }}</p>
+                      <a href="#" class="btn btn-primary btn-block">Add to Cart</a>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+        </div>
+
+
+    </div>
+</div>
