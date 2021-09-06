@@ -34,29 +34,32 @@ public class ListServlet extends HttpServlet{
 					+ "    <title>Document</title>\r\n"
 					+ "</head>\r\n"
 					+ "<body>\r\n"
-					+ "    <form action=\"listservlet?value=1\" method=\"GET\">\r\n"
-					+ "        <input type=\"hidden\" name=\"value\" value=\"1\"/>\r\n"
+					+ "    <form action=\"listservlet\" method=\"GET\">\r\n"
+					+ "        <input type=\"hidden\" name=\"value\" value=\"5\"/>\r\n"
 					+ "        <input type=\"submit\" value=\"list all\">\r\n"
 					+ "    </form>\r\n"
-					+ "    <form action=\"listservlet?value=2\" method=\"GET\">\r\n"
-					+ "        <input type=\"hidden\" name=\"value\" value=\"2\"/>\r\n"
+					+ "    <form action=\"listservlet\" method=\"GET\">\r\n"
+					+ "        <input type=\"hidden\" name=\"value\" value=\"1\"/>\r\n"
 					+ "        <input type=\"submit\" value=\"lodging\">\r\n"
 					+ "    </form>\r\n"
-					+ "    <form action=\"listservlet?value=3\" method=\"GET\">\r\n"
-					+ "        <input type=\"hidden\" name=\"value\" value=\"3\"/>\r\n"
+					+ "    <form action=\"listservlet\" method=\"GET\">\r\n"
+					+ "        <input type=\"hidden\" name=\"value\" value=\"2\"/>\r\n"
 					+ "        <input type=\"submit\" value=\"travel\">\r\n"
 					+ "    </form>\r\n"
-					+ "    <form action=\"listservlet?value=4\" method=\"GET\">\r\n"
-					+ "        <input type=\"hidden\" name=\"value\" value=\"4\"/>\r\n"
+					+ "    <form action=\"listservlet\" method=\"GET\">\r\n"
+					+ "        <input type=\"hidden\" name=\"value\" value=\"3\"/>\r\n"
 					+ "        <input type=\"submit\" value=\"food\">\r\n"
 					+ "    </form>\r\n"
-					+ "    <form action=\"listservlet?value=5\" method=\"GET\">\r\n"
-					+ "        <input type=\"hidden\" name=\"value\" value=\"5\"/>\r\n"
+					+ "    <form action=\"listservlet\" method=\"GET\">\r\n"
+					+ "        <input type=\"hidden\" name=\"value\" value=\"4\"/>\r\n"
 					+ "        <input type=\"submit\" value=\"other\">\r\n"
 					+ "    </form>");
+			out.println("    <a href=\"user.jsp\">\r\n"
+					+ "        <button>Go Back</button>\r\n"
+					+ "     </a>");
 			
 			String value = request.getParameter("value");
-			if(value == null || value.equals("1")) {
+			if(value == null || value.equals("5")) {
 				reimbursements = dao.getReimbursements(user.getId(), reimbursements);
 			}
 			else	{
@@ -105,7 +108,7 @@ public class ListServlet extends HttpServlet{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		reimbursements.clear();
 	}
 
 }

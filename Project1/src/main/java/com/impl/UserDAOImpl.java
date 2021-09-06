@@ -70,4 +70,42 @@ public class UserDAOImpl implements UserDAO{
 		return null;
 	}
 
+	@Override
+	public List<Reimbursement> getAllReimbursements(List<Reimbursement> reims) throws SQLException {
+		String sql = "select * from reimbursement";
+		statement = conn.createStatement();
+		ResultSet set = statement.executeQuery(sql);
+		while(set.next())	{
+			reims.add(new Reimbursement(set.getInt(1), set.getInt(2), set.getDouble(3), set.getString(4), set.getString(5), set.getString(6), set.getString(7)));
+		}
+		return reims;
+	}
+
+	@Override
+	public List<Reimbursement> getAllReimbursements(int type, List<Reimbursement> reims) throws SQLException {
+		String sql = "select * from reimbursement where reimbursement_type=" + type;
+		statement = conn.createStatement();
+		ResultSet set = statement.executeQuery(sql);
+		while(set.next())	{
+			reims.add(new Reimbursement(set.getInt(1), set.getInt(2), set.getDouble(3), set.getString(4), set.getString(5), set.getString(6), set.getString(7)));
+		}
+		return reims;
+	}
+
+	@Override
+	public void updateReimbursement(int id, int status) throws SQLException {
+		String sql = "update reimbursement set reimbursement_status = ? where reimbursement_id = ?";
+		String stringStatus;
+		if(status == 2)	{
+			stringStatus = "Accepted";
+		}
+		else	{
+			stringStatus = "Rejected";
+		}
+		PreparedStatement pre = conn.prepareStatement(sql);
+		pre.setString(1, stringStatus);
+		pre.setInt(2, id);
+		pre.executeUpdate();
+	}
+
 }

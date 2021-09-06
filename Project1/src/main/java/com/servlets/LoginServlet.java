@@ -38,9 +38,15 @@ public class LoginServlet extends HttpServlet{
 			}
 			HttpSession session = request.getSession();
 			session.setAttribute("user", user);
-			rd = request.getRequestDispatcher("user.jsp");
-			out.println("<h1>Welcome "+user.getUsername()+"</h1>");
-			rd.include(request, response);
+			if(user.isRole()) {
+				rd = request.getRequestDispatcher("admin.jsp");
+				out.println("<h1>Welcome "+user.getUsername()+"</h1>");
+				rd.include(request, response);
+			}	else	{
+				rd = request.getRequestDispatcher("user.jsp");
+				out.println("<h1>Welcome "+user.getUsername()+"</h1>");
+				rd.include(request, response);
+			}
 			
 			out.println("</body>");
 			out.println("</HTML>");
@@ -48,6 +54,8 @@ public class LoginServlet extends HttpServlet{
 			
 		}	catch(SQLException e) {
 			e.printStackTrace();
+		}	catch(NullPointerException e) {
+			
 		}
 		
 	}

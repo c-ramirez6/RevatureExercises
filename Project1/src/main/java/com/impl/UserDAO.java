@@ -11,9 +11,14 @@ public interface UserDAO {
 	public List<Reimbursement> getReimbursements(int userId, List<Reimbursement> reims) throws SQLException;
 	public List<Reimbursement> getReimbursements(int userId, int type, List<Reimbursement> reims) throws SQLException;
 	
+	public List<Reimbursement> getAllReimbursements(List<Reimbursement> reims) throws SQLException;
+	public List<Reimbursement> getAllReimbursements(int type, List<Reimbursement> reims) throws SQLException;
+	
 	public void addReimbursement(Reimbursement reim) throws SQLException;
 	
 	public User getUser(String username, String password) throws SQLException;
+	
+	public void updateReimbursement(int id, int status) throws SQLException;
 	
 	
 
