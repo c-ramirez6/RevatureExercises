@@ -36,7 +36,7 @@ public class AdminServlet extends HttpServlet {
 					+ "</head>\r\n"
 					+ "\r\n"
 					+ "<body>\r\n"
-					+ "    <table class=\"table\">\r\n"
+					+ "    <table class=\"table\" style='width: 75%; margin: 0 auto'>\r\n"
 					+ "        <tr>\r\n"
 					+ "            <th>\r\n"
 					+ "                <form action=\"adminservlet?value=5\" method=\"get\">\r\n"
@@ -47,25 +47,19 @@ public class AdminServlet extends HttpServlet {
 					+ "            <th>\r\n"
 					+ "                <form action=\"adminservlet?value=1\" method=\"get\">\r\n"
 					+ "                    <input type=\"hidden\" name=\"value\" value=\"1\">\r\n"
-					+ "                    <input type=\"submit\" value=\"Lodging\" class=\"btn btn-primary\">\r\n"
+					+ "                    <input type=\"submit\" value=\"Pending\" class=\"btn btn-primary\">\r\n"
 					+ "                </form>\r\n"
 					+ "            </th>\r\n"
 					+ "            <th>\r\n"
 					+ "                <form action=\"adminservlet?value=2\" method=\"get\">\r\n"
 					+ "                    <input type=\"hidden\" name=\"value\" value=\"2\">\r\n"
-					+ "                    <input type=\"submit\" value=\"Travel\" class=\"btn btn-primary\">\r\n"
+					+ "                    <input type=\"submit\" value=\"Accepted\" class=\"btn btn-primary\">\r\n"
 					+ "                </form>\r\n"
 					+ "            </th>\r\n"
 					+ "            <th>\r\n"
 					+ "                <form action=\"adminservlet?value=3\" method=\"get\">\r\n"
 					+ "                    <input type=\"hidden\" name=\"value\" value=\"3\">\r\n"
-					+ "                    <input type=\"submit\" value=\"Food\" class=\"btn btn-primary\">\r\n"
-					+ "                </form>\r\n"
-					+ "            </th>\r\n"
-					+ "            <th>\r\n"
-					+ "                <form action=\"adminservlet?value=4\" method=\"get\">\r\n"
-					+ "                    <input type=\"hidden\" name=\"value\" value=\"4\">\r\n"
-					+ "                    <input type=\"submit\" value=\"Other\" class=\"btn btn-primary\">\r\n"
+					+ "                    <input type=\"submit\" value=\"Rejected\" class=\"btn btn-primary\">\r\n"
 					+ "                </form>\r\n"
 					+ "            </th>\r\n"
 					+ "            <th>\r\n"
@@ -84,7 +78,7 @@ public class AdminServlet extends HttpServlet {
 				reimbursements = dao.getAllReimbursements(listReim, reimbursements);
 			}
 			out.println(
-					"    <table class=\"table table-striped\">\r\n"
+					"    <table class=\"table table-striped\" style='width: 75%; margin: 0 auto'>\r\n"
 					+ "        <thead>\r\n"
 					+ "            <tr>\r\n"
 					+ "                <th scope=\"col\">Reimbursement Id</th>\r\n"
@@ -136,6 +130,7 @@ public class AdminServlet extends HttpServlet {
 			out.println(" </tbody>");
 			out.println("</table");
 			out.println("</body>\r\n" + "</html>");
+			out.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

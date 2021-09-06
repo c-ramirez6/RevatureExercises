@@ -27,36 +27,50 @@ public class ListServlet extends HttpServlet{
 		try(PrintWriter out = response.getWriter())	{
 			out.println("<!DOCTYPE html>\r\n"
 					+ "<html lang=\"en\">\r\n"
+					+ "\r\n"
 					+ "<head>\r\n"
 					+ "    <meta charset=\"UTF-8\">\r\n"
 					+ "    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n"
 					+ "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n"
 					+ "    <title>Document</title>\r\n"
+					+ "    <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css\" rel=\"stylesheet\"\r\n"
+					+ "        integrity=\"sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We\" crossorigin=\"anonymous\">\r\n"
 					+ "</head>\r\n"
+					+ "\r\n"
 					+ "<body>\r\n"
-					+ "    <form action=\"listservlet\" method=\"GET\">\r\n"
-					+ "        <input type=\"hidden\" name=\"value\" value=\"5\"/>\r\n"
-					+ "        <input type=\"submit\" value=\"list all\">\r\n"
-					+ "    </form>\r\n"
-					+ "    <form action=\"listservlet\" method=\"GET\">\r\n"
-					+ "        <input type=\"hidden\" name=\"value\" value=\"1\"/>\r\n"
-					+ "        <input type=\"submit\" value=\"lodging\">\r\n"
-					+ "    </form>\r\n"
-					+ "    <form action=\"listservlet\" method=\"GET\">\r\n"
-					+ "        <input type=\"hidden\" name=\"value\" value=\"2\"/>\r\n"
-					+ "        <input type=\"submit\" value=\"travel\">\r\n"
-					+ "    </form>\r\n"
-					+ "    <form action=\"listservlet\" method=\"GET\">\r\n"
-					+ "        <input type=\"hidden\" name=\"value\" value=\"3\"/>\r\n"
-					+ "        <input type=\"submit\" value=\"food\">\r\n"
-					+ "    </form>\r\n"
-					+ "    <form action=\"listservlet\" method=\"GET\">\r\n"
-					+ "        <input type=\"hidden\" name=\"value\" value=\"4\"/>\r\n"
-					+ "        <input type=\"submit\" value=\"other\">\r\n"
-					+ "    </form>");
-			out.println("    <a href=\"user.jsp\">\r\n"
-					+ "        <button>Go Back</button>\r\n"
-					+ "     </a>");
+					+ "    <table class=\"table\" style='width: 75%; margin: 0 auto'>\r\n"
+					+ "        <tr>\r\n"
+					+ "            <th>\r\n"
+					+ "                <form action=\"listservlet?value=5\" method=\"get\">\r\n"
+					+ "                    <input type=\"hidden\" name=\"value\" value=\"5\">\r\n"
+					+ "                    <input type=\"submit\" value=\"List All\" class=\"btn btn-primary\">\r\n"
+					+ "                </form>\r\n"
+					+ "            </th>\r\n"
+					+ "            <th>\r\n"
+					+ "                <form action=\"listservlet?value=1\" method=\"get\">\r\n"
+					+ "                    <input type=\"hidden\" name=\"value\" value=\"1\">\r\n"
+					+ "                    <input type=\"submit\" value=\"Pending\" class=\"btn btn-primary\">\r\n"
+					+ "                </form>\r\n"
+					+ "            </th>\r\n"
+					+ "            <th>\r\n"
+					+ "                <form action=\"listservlet?value=2\" method=\"get\">\r\n"
+					+ "                    <input type=\"hidden\" name=\"value\" value=\"2\">\r\n"
+					+ "                    <input type=\"submit\" value=\"Accepted\" class=\"btn btn-primary\">\r\n"
+					+ "                </form>\r\n"
+					+ "            </th>\r\n"
+					+ "            <th>\r\n"
+					+ "                <form action=\"listservlet?value=3\" method=\"get\">\r\n"
+					+ "                    <input type=\"hidden\" name=\"value\" value=\"3\">\r\n"
+					+ "                    <input type=\"submit\" value=\"Rejected\" class=\"btn btn-primary\">\r\n"
+					+ "                </form>\r\n"
+					+ "            </th>\r\n"
+					+ "            <th>\r\n"
+					+ "                <a href=\"user.jsp\">\r\n"
+					+ "                    <input type=\"button\" value=\"Go Back\" class=\"btn btn-primary\">\r\n"
+					+ "                </a>\r\n"
+					+ "            </th>\r\n"
+					+ "        </tr>\r\n"
+					+ "    </table>");
 			
 			String value = request.getParameter("value");
 			if(value == null || value.equals("5")) {
@@ -66,16 +80,16 @@ public class ListServlet extends HttpServlet{
 				int listReim = Integer.parseInt(value);
 				reimbursements = dao.getReimbursements(user.getId(), listReim, reimbursements);
 			}
-			out.println("<table>\r\n"
+			out.println("    <table class=\"table table-striped\" style='width: 75%; margin: 0 auto'>\r\n"
 					+ "        <thead>\r\n"
 					+ "            <tr>\r\n"
-					+ "                <td>id</td>\r\n"
-					+ "                <td>user id</td>\r\n"
-					+ "                <td>amount</td>\r\n"
-					+ "                <td>type</td>\r\n"
-					+ "                <td>desc</td>\r\n"
-					+ "                <td>date</td>\r\n"
-					+ "                <td>status</td>\r\n"
+					+ "                <th scope=\"col\">Reimbursement Id</th>\r\n"
+					+ "                <th scope=\"col\">User Id</th>\r\n"
+					+ "                <th scope=\"col\">Amount in $</th>\r\n"
+					+ "                <th scope=\"col\">Type</th>\r\n"
+					+ "                <th scope=\"col\">Description</th>\r\n"
+					+ "                <th scope=\"col\">Date of Expense</th>\r\n"
+					+ "                <th scope=\"col\">Status</th>\r\n"
 					+ "            </tr>\r\n"
 					+ "        </thead>\r\n"
 					+ "        <tbody>");
@@ -89,7 +103,7 @@ public class ListServlet extends HttpServlet{
 				String date = r.getDate();
 				String status = r.getStatus();
 				
-				out.println("<tr>\r\n"
+				out.println("           <tr>\r\n"
 						+ "                <td>"+id+"</td>\r\n"
 						+ "                <td>"+usersId+"</td>\r\n"
 						+ "                <td>"+amount+"</td>\r\n"
@@ -104,6 +118,7 @@ public class ListServlet extends HttpServlet{
 			out.println("</table");
 			out.println("</body>\r\n"
 					+ "</html>");
+			out.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

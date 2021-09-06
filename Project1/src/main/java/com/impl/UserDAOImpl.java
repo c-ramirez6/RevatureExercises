@@ -36,8 +36,8 @@ public class UserDAOImpl implements UserDAO{
 	}
 
 	@Override
-	public List<Reimbursement> getReimbursements(int userId, int type, List<Reimbursement> reims) throws SQLException {
-		String sql = "select * from reimbursement where users_id =" + userId + " AND reimbursement_type=" + type;
+	public List<Reimbursement> getReimbursements(int userId, int status, List<Reimbursement> reims) throws SQLException {
+		String sql = "select * from reimbursement where users_id =" + userId + " AND reimbursement_status=" + status;
 		statement = conn.createStatement();
 		ResultSet set = statement.executeQuery(sql);
 		while(set.next())	{
@@ -82,8 +82,8 @@ public class UserDAOImpl implements UserDAO{
 	}
 
 	@Override
-	public List<Reimbursement> getAllReimbursements(int type, List<Reimbursement> reims) throws SQLException {
-		String sql = "select * from reimbursement where reimbursement_type=" + type;
+	public List<Reimbursement> getAllReimbursements(int status, List<Reimbursement> reims) throws SQLException {
+		String sql = "select * from reimbursement where reimbursement_status=" + status;
 		statement = conn.createStatement();
 		ResultSet set = statement.executeQuery(sql);
 		while(set.next())	{
