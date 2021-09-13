@@ -1,8 +1,0 @@
-
-3: styling
-
-4: figure out where I am using javascript and AJAX
-
-5: host on AWS?
-
-6: refactor code

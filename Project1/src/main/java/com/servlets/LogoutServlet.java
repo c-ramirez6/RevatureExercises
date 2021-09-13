@@ -20,7 +20,7 @@ public class LogoutServlet extends HttpServlet{
 			out.println("<!DOCTYPE html>");
 			out.println("<HTML>");
 			out.println("<Head>");
-			out.println("<Title>Login</Title>");
+			out.println("<Title>Reimbursement System</Title>");
 			out.println("</Head>");
 			out.println("<body>");
 			try {

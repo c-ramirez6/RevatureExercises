@@ -1,6 +1,8 @@
-18:45:23,259  INFO - User [id=1, username=crami, password=password, role=false] logged in
-18:45:52,502  INFO - Reimbursement [id=0, users_id=1, amount=100.5, type=other, desc=Test1, date=2021-07-15, status=null]has been added
-18:46:14,677  INFO - Reimbursement [id=0, users_id=1, amount=900.0, type=lodging, desc=test 2, date=2021-09-01, status=null]has been added
-18:46:26,504  INFO - User [id=1, username=crami, password=password, role=false] logged out
-18:46:30,093  INFO - User [id=2, username=admin, password=password, role=true] logged in
-18:46:42,642  INFO - User [id=2, username=admin, password=password, role=true] logged out
+11:16:46,281  INFO - User [id=1, username=crami, password=password, role=false] logged in
+11:17:06,018  INFO - Reimbursement [id=0, users_id=1, amount=300.0, type=food, desc=Lunch with execs, date=2021-09-03, status=null]has been added
+11:17:20,156  INFO - User [id=1, username=crami, password=password, role=false] logged out
+11:17:24,280  INFO - User [id=2, username=admin, password=password, role=true] logged in
+11:17:35,911  INFO - Reimbursement no: 12has been accepted
+11:17:38,915  INFO - Reimbursement no: 12has been rejected
+11:17:40,302  INFO - Reimbursement no: 12has been accepted
+11:17:43,921  INFO - User [id=2, username=admin, password=password, role=true] logged out

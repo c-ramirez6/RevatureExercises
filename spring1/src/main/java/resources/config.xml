@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+        xmlns:p="http://www.springframework.org/schema/p">
+
+	<bean class="com.revature.spring1.Student" name="student1">
+		<property name="studentId">
+			<value>100</value>
+		</property>
+		<property name="studentName">
+			<value>Mark Smith</value>
+		</property>
+		<property name="studentAddress">
+			<value>USA</value>
+		</property>
+	</bean>
+	
+	<bean class="com.revature.spring1.Student" name="student2">
+		<property name="studentId" value="200"></property>
+		<property name="studentName" value="Paul"></property>
+		<property name="studentAddress" value="UK"></property>
+	</bean>
+	
+	<bean class="com.revature.spring1.Student" name = "student3" p:studentId="300" p:studentName="Watson" p:studentAddress="UAE">
+		
+	
+	</bean>
+	
+	<bean class="com.revature.spring1.Employee" name="employee1">
+		<property name="name" value="Mark"></property>
+		<property name="phoneNumbers">
+			<list>
+				<value>9999</value>
+				<value>8888</value>
+				<value>7777</value>
+			</list>
+		</property>
+		<property name="addresses">
+			<list>
+				<value>USA</value>
+				<value>UK</value>
+				<value>JPN</value>
+			</list>
+		</property>
+		<property name="department">
+			<map>
+				<entry key="admin" value="usa"/>
+				<entry key="hr" value="uk"/>
+				<entry key="sales" value="jpn"/>
+			</map>
+		</property>
+	</bean>
+	
+	<bean class="com.revature.spring1.Address" name="address1">
+		<property name="houseNumber" value="1000"/>
+		<property name="street" value="Street Name"/>
+		<property name="city" value="City 1"/>
+	</bean>
+	
+	<bean class="com.revature.spring1.Customer" name="customer1">
+		<property name="name" value="Stacy"/>
+		<property name="id" value="1"/>
+		<property name="email" value="s@gmail.com"/>
+		<property name="address" ref="address1"/>
+	</bean>
+
+	<bean class="com.revature.spring1.Pet" name="pet1" init-method="init" destroy-method="destroy">
+		<constructor-arg name="id" value="1"/>
+		<constructor-arg name="name" value="Rex"/>
+		<constructor-arg name="type" value="Dog"/>
+	</bean>
+	
+	<bean class="com.revature.spring1.Company" name="company1">
+		<constructor-arg name="name" value = "Burger King"/>
+		<constructor-arg name="size" value = "Large"/>
+	</bean>
+
+</beans>
